@@ -12,7 +12,7 @@ public class Carro {
     private Color color;
     private double precio;
     private ArrayList<String> mejoras = new ArrayList();
-    private int tipo;
+    private boolean reconstruido;
     private String pais;
     private Date fabricacion;
 
@@ -21,12 +21,12 @@ public class Carro {
 
   
 
-    public Carro(String marca, String modelo, Color color, double precio, int tipo, String pais, Date fabricacion) {
+    public Carro(String marca, String modelo, Color color, double precio, boolean reconstruido, String pais, Date fabricacion) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
         this.precio = precio;
-        this.tipo = tipo;
+      this.reconstruido = reconstruido;
         this.pais = pais;
         this.fabricacion = fabricacion;
     }
@@ -51,9 +51,15 @@ public class Carro {
         this.mejoras = mejoras;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    public boolean isReconstruido() {
+        return reconstruido;
     }
+
+    public void setReconstruido(boolean reconstruido) {
+        this.reconstruido = reconstruido;
+    }
+
+   
 
     public String getPais() {
         return pais;
@@ -91,15 +97,13 @@ public class Carro {
         return mejoras;
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-
     @Override
     public String toString() {
-        return "Carro{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", precio=" + precio + ", mejoras=" + mejoras + ", tipo=" + tipo + ", pais=" + pais + ", fabricacion=" + fabricacion + '}';
+        return "Carro{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", precio=" + precio + ", mejoras=" + mejoras + ", reconstruido=" + reconstruido + ", pais=" + pais + ", fabricacion=" + fabricacion + '}';
     }
 
+
+   
   
 
 }
