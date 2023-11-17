@@ -4,6 +4,8 @@
  */
 package lab6p2_diegoordonez;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 50432
@@ -13,12 +15,14 @@ public class Garaje extends javax.swing.JFrame {
     /**
      * Creates new form Garaje
      */
+     ArrayList<Jugador> usuarios = new ArrayList();
     public Garaje() {
         initComponents();
         
         jp_iniciarS.setVisible(false);
         jp_crearU.setVisible(false);
         jp_Contra.setVisible(false);
+     
     }
     
 
@@ -48,13 +52,13 @@ public class Garaje extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jt_correo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jpas_contra = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jt_pais_de_r = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jdc_fecha = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jd_iniciaeSLayout = new javax.swing.GroupLayout(jd_iniciaeS.getContentPane());
@@ -188,24 +192,29 @@ public class Garaje extends javax.swing.JFrame {
 
         jLabel7.setText("Correo");
 
-        jTextField2.setText("Ingrese su correo");
+        jt_correo.setText("Ingrese su correo");
 
         jLabel8.setText("Contraseña");
 
-        jPasswordField1.setText("jPasswordField1");
+        jpas_contra.setText("jPasswordField1");
 
         jLabel9.setText("Pais de residencia");
 
-        jTextField3.setText("Ingrese pais");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jt_pais_de_r.setText("Ingrese pais");
+        jt_pais_de_r.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jt_pais_de_rActionPerformed(evt);
             }
         });
 
         jLabel10.setText("Fecha de nacimiento");
 
         jButton1.setText("Añadir Usuario");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -238,12 +247,12 @@ public class Garaje extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(jTextField2)
-                                        .addComponent(jPasswordField1)
-                                        .addComponent(jTextField3)))
+                                        .addComponent(jt_correo)
+                                        .addComponent(jpas_contra)
+                                        .addComponent(jt_pais_de_r)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_crearULayout.createSequentialGroup()
                                     .addGap(19, 19, 19)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jdc_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(222, Short.MAX_VALUE))
         );
         jp_crearULayout.setVerticalGroup(
@@ -258,23 +267,23 @@ public class Garaje extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(jpas_contra, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp_crearULayout.createSequentialGroup()
-                        .addComponent(jTextField3)
+                        .addComponent(jt_pais_de_r)
                         .addGap(5, 5, 5)))
                 .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jp_crearULayout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jp_crearULayout.createSequentialGroup()
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jdc_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61))))
@@ -320,9 +329,9 @@ public class Garaje extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_IniciarSActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jt_pais_de_rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_pais_de_rActionPerformed
 
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jt_pais_de_rActionPerformed
 
     private void jb_IniciarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_IniciarSMouseClicked
        jp_login.setVisible(false);
@@ -338,6 +347,14 @@ public class Garaje extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        
+        Jugador usuario = new  Jugador(jt_nombreU.getText(), jt_correo.getText(), jt_pais_de_r.getText(), jdc_fecha.getDate(), jpas_contra.getText());
+      usuarios.add(usuario);
+       jp_login.setVisible(true);
+       jp_crearU.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -376,7 +393,6 @@ public class Garaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -387,18 +403,19 @@ public class Garaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton jb_CrearU;
     private javax.swing.JButton jb_IniciarS;
     private javax.swing.JDialog jd_crearU;
     private javax.swing.JDialog jd_iniciaeS;
+    private com.toedter.calendar.JDateChooser jdc_fecha;
     private javax.swing.JPasswordField jp_Contra;
     private javax.swing.JPanel jp_crearU;
     private javax.swing.JPanel jp_iniciarS;
     private javax.swing.JPanel jp_login;
+    private javax.swing.JPasswordField jpas_contra;
+    private javax.swing.JTextField jt_correo;
     private javax.swing.JTextField jt_nombreU;
+    private javax.swing.JTextField jt_pais_de_r;
     // End of variables declaration//GEN-END:variables
 }

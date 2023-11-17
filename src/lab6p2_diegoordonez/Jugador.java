@@ -16,13 +16,13 @@ public class Jugador {
     public Jugador() {
     }
 
-    public Jugador(String nombre, String correo, String pais, Date fechan, String contra, int saldo) {
+    public Jugador(String nombre, String correo, String pais, Date fechan, String contra) {
         this.nombre = nombre;
         this.correo = correo;
         this.pais = pais;
         this.fechan = fechan;
         this.contra = contra;
-        this.saldo = saldo;
+      
     }
 
     public String getNombre() {
