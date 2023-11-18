@@ -11,7 +11,7 @@ public class Jugador {
     private String pais;
     private Date fechan;
     private String contra;
-    private int saldo;
+    private int saldo = 150000;
 
     public Jugador() {
     }

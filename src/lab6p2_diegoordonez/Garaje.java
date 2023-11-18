@@ -18,6 +18,7 @@ public class Garaje extends javax.swing.JFrame {
      * Creates new form Garaje
      */
      ArrayList<Jugador> usuarios = new ArrayList();
+     ArrayList<Carro> cars = new ArrayList();
     public Garaje() {
         initComponents();
         
@@ -64,6 +65,8 @@ public class Garaje extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jdc_fecha = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         jp_admin = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -72,12 +75,15 @@ public class Garaje extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jtadmin_marca = new javax.swing.JTextField();
+        jtadmin_model = new javax.swing.JTextField();
+        jtadmin_price = new javax.swing.JTextField();
+        jcadmin_pais = new javax.swing.JComboBox<>();
         jbcol = new javax.swing.JButton();
+        jb_admin_agrecar = new javax.swing.JButton();
+        jdc_admin_fabri = new com.toedter.calendar.JDateChooser();
+        jLabel18 = new javax.swing.JLabel();
+        jcadmin_rec = new javax.swing.JComboBox<>();
 
         javax.swing.GroupLayout jd_iniciaeSLayout = new javax.swing.GroupLayout(jd_iniciaeS.getContentPane());
         jd_iniciaeS.getContentPane().setLayout(jd_iniciaeSLayout);
@@ -102,6 +108,8 @@ public class Garaje extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(875, 475));
+        setPreferredSize(new java.awt.Dimension(805, 475));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Login");
@@ -130,7 +138,7 @@ public class Garaje extends javax.swing.JFrame {
         jp_loginLayout.setHorizontalGroup(
             jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_loginLayout.createSequentialGroup()
-                .addContainerGap(834, Short.MAX_VALUE)
+                .addContainerGap(464, Short.MAX_VALUE)
                 .addComponent(jb_IniciarS, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(221, 221, 221)
                 .addComponent(jb_CrearU, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,8 +157,10 @@ public class Garaje extends javax.swing.JFrame {
                 .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_IniciarS, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_CrearU, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(621, Short.MAX_VALUE))
+                .addContainerGap(419, Short.MAX_VALUE))
         );
+
+        jp_iniciarS.setMaximumSize(new java.awt.Dimension(817, 821));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -215,7 +225,7 @@ public class Garaje extends javax.swing.JFrame {
                     .addComponent(jp_IniciarS_Contra, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(51, 51, 51)
                 .addComponent(jb_iniciarS_Ingre, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -289,7 +299,7 @@ public class Garaje extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_crearULayout.createSequentialGroup()
                                     .addGap(19, 19, 19)
                                     .addComponent(jdc_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(928, Short.MAX_VALUE))
+                .addContainerGap(558, Short.MAX_VALUE))
         );
         jp_crearULayout.setVerticalGroup(
             jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,6 +335,21 @@ public class Garaje extends javax.swing.JFrame {
                         .addGap(61, 61, 61))))
         );
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 827, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 468, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab1", jPanel1);
+
+        jp_admin.setMaximumSize(new java.awt.Dimension(805, 467));
+
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Administrador");
@@ -333,7 +358,7 @@ public class Garaje extends javax.swing.JFrame {
 
         jLabel13.setText("modelo");
 
-        jLabel14.setText("color");
+        jLabel14.setText("Fabricacion");
 
         jLabel15.setText("precio");
 
@@ -341,21 +366,35 @@ public class Garaje extends javax.swing.JFrame {
 
         jLabel17.setText("color");
 
-        jTextField2.setText("jTextField2");
+        jtadmin_marca.setText("jTextField2");
 
-        jTextField3.setText("jTextField3");
+        jtadmin_model.setText("jTextField3");
 
-        jTextField4.setText("jTextField4");
+        jtadmin_price.setText("jTextField5");
 
-        jTextField5.setText("jTextField5");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcadmin_pais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jbcol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbcolMouseClicked(evt);
             }
         });
+
+        jb_admin_agrecar.setText("Agregar carro");
+        jb_admin_agrecar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_admin_agrecarMouseClicked(evt);
+            }
+        });
+        jb_admin_agrecar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_admin_agrecarActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Reconstruido");
+
+        jcadmin_rec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Reconstruido", "Agencia" }));
 
         javax.swing.GroupLayout jp_adminLayout = new javax.swing.GroupLayout(jp_admin);
         jp_admin.setLayout(jp_adminLayout);
@@ -379,16 +418,25 @@ public class Garaje extends javax.swing.JFrame {
                                 .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbcol))))
-                .addContainerGap(253, Short.MAX_VALUE))
+                        .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbcol)
+                            .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jtadmin_marca, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                                .addComponent(jtadmin_model)
+                                .addComponent(jtadmin_price)
+                                .addComponent(jcadmin_pais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jp_adminLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jdc_admin_fabri, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jcadmin_rec, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(252, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_adminLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jb_admin_agrecar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
         );
         jp_adminLayout.setVerticalGroup(
             jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,23 +446,23 @@ public class Garaje extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtadmin_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtadmin_model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdc_admin_fabri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtadmin_price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcadmin_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_adminLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -422,7 +470,13 @@ public class Garaje extends javax.swing.JFrame {
                     .addGroup(jp_adminLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jbcol, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jp_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jcadmin_rec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jb_admin_agrecar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -444,7 +498,12 @@ public class Garaje extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(375, 375, 375)
                     .addComponent(jp_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(375, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(728, 728, 728)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(358, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,7 +524,12 @@ public class Garaje extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(216, 216, 216)
                     .addComponent(jp_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(217, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(395, 395, 395)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(194, Short.MAX_VALUE)))
         );
 
         pack();
@@ -509,6 +573,7 @@ public class Garaje extends javax.swing.JFrame {
     private void jb_iniciarS_IngreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_iniciarS_IngreMouseClicked
         if(jt_iniciarS_nombreU.getText().equals("admin")&&jp_IniciarS_Contra.getText().equals("admin")){
         jp_admin.setVisible(true);
+        jp_iniciarS.setVisible(false);
         }
     }//GEN-LAST:event_jb_iniciarS_IngreMouseClicked
 
@@ -516,6 +581,19 @@ public class Garaje extends javax.swing.JFrame {
  
        jbcol.setBackground(JColorChooser.showDialog(this, "", Color.yellow));
     }//GEN-LAST:event_jbcolMouseClicked
+
+    private void jb_admin_agrecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_admin_agrecarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_admin_agrecarActionPerformed
+
+    private void jb_admin_agrecarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_admin_agrecarMouseClicked
+    Carro car = new Carro(jtadmin_marca.getText(), jtadmin_model.getText(), jbcol.getBackground(), Double.parseDouble(jtadmin_price.getText()), jcadmin_rec.getSelectedItem().toString(), jcadmin_pais.getSelectedItem().toString(), jdc_admin_fabri.getDate());
+    cars.add(car);
+    
+    jp_login.setVisible(false);
+    jp_iniciarS.setVisible(false);
+    jb_iniciarS_Ingre.setVisible(false);
+    }//GEN-LAST:event_jb_admin_agrecarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -554,7 +632,6 @@ public class Garaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -564,6 +641,7 @@ public class Garaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -572,17 +650,19 @@ public class Garaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JButton jb_CrearU;
     private javax.swing.JButton jb_IniciarS;
+    private javax.swing.JButton jb_admin_agrecar;
     private javax.swing.JButton jb_iniciarS_Ingre;
     private javax.swing.JButton jbcol;
+    private javax.swing.JComboBox<String> jcadmin_pais;
+    private javax.swing.JComboBox<String> jcadmin_rec;
     private javax.swing.JDialog jd_crearU;
     private javax.swing.JDialog jd_iniciaeS;
+    private com.toedter.calendar.JDateChooser jdc_admin_fabri;
     private com.toedter.calendar.JDateChooser jdc_fecha;
     private javax.swing.JPasswordField jp_IniciarS_Contra;
     private javax.swing.JPanel jp_admin;
@@ -593,5 +673,8 @@ public class Garaje extends javax.swing.JFrame {
     private javax.swing.JTextField jt_correo;
     private javax.swing.JTextField jt_iniciarS_nombreU;
     private javax.swing.JTextField jt_pais_de_r;
+    private javax.swing.JTextField jtadmin_marca;
+    private javax.swing.JTextField jtadmin_model;
+    private javax.swing.JTextField jtadmin_price;
     // End of variables declaration//GEN-END:variables
 }

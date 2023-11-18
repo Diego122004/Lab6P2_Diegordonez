@@ -11,8 +11,8 @@ public class Carro {
     private String modelo;
     private Color color;
     private double precio;
-    private ArrayList<String> mejoras = new ArrayList();
-    private boolean reconstruido;
+    private ArrayList<Parte> mejoras = new ArrayList();
+    private String reconstruido;
     private String pais;
     private Date fabricacion;
 
@@ -21,7 +21,7 @@ public class Carro {
 
   
 
-    public Carro(String marca, String modelo, Color color, double precio, boolean reconstruido, String pais, Date fabricacion) {
+    public Carro(String marca, String modelo, Color color, double precio, String reconstruido, String pais, Date fabricacion) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
@@ -47,17 +47,19 @@ public class Carro {
         this.precio = precio;
     }
 
-    public void setMejoras(ArrayList<String> mejoras) {
+    public void setMejoras(ArrayList<Parte> mejoras) {
         this.mejoras = mejoras;
     }
 
-    public boolean isReconstruido() {
+    public String getReconstruido() {
         return reconstruido;
     }
 
-    public void setReconstruido(boolean reconstruido) {
+    public void setReconstruido(String reconstruido) {
         this.reconstruido = reconstruido;
     }
+
+   
 
    
 
@@ -93,7 +95,7 @@ public class Carro {
         return precio;
     }
 
-    public ArrayList<String> getMejoras() {
+    public ArrayList<Parte> getMejoras() {
         return mejoras;
     }
 
