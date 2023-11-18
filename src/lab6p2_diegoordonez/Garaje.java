@@ -6,7 +6,9 @@ package lab6p2_diegoordonez;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Garaje extends javax.swing.JFrame {
      */
      ArrayList<Jugador> usuarios = new ArrayList();
      ArrayList<Carro> cars = new ArrayList();
+     static DefaultTableModel modelo = new DefaultTableModel();
     public Garaje() {
         initComponents();
         
@@ -27,6 +30,7 @@ public class Garaje extends javax.swing.JFrame {
         jp_IniciarS_Contra.setVisible(false);
         jp_admin.setVisible(false);
      
+        modelo = ((DefaultTableModel)(jtab_cars.getModel()));
     }
     
 
@@ -65,8 +69,18 @@ public class Garaje extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jdc_fecha = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jtab_gar = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jc_cyv_conce = new javax.swing.JComboBox<>();
+        jLabel20 = new javax.swing.JLabel();
+        jc_cyv_pais = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        jc_cyv_marca = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtab_cars = new javax.swing.JTable();
         jp_admin = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -282,12 +296,10 @@ public class Garaje extends javax.swing.JFrame {
                             .addGap(69, 69, 69)
                             .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jp_crearULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jp_crearULayout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -335,18 +347,128 @@ public class Garaje extends javax.swing.JFrame {
                         .addGap(61, 61, 61))))
         );
 
+        jtab_gar.setMaximumSize(new java.awt.Dimension(573, 358));
+        jtab_gar.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jtab_garStateChanged(evt);
+            }
+        });
+
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("Compra y venta");
+
+        jc_cyv_conce.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Advance", "RocketBunny", "DTM  Fiberwerkz", "Origin Lab", "Urban Outlaw", "Fifteen52", " " }));
+        jc_cyv_conce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jc_cyv_conceActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Concecionario");
+
+        jc_cyv_pais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Japan", "USA", "Italia", "Alemania", "Francia", "UK", " " }));
+        jc_cyv_pais.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jc_cyv_paisItemStateChanged(evt);
+            }
+        });
+        jc_cyv_pais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jc_cyv_paisActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setText("Pais");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 827, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jc_cyv_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(147, 147, 147)
+                                .addComponent(jc_cyv_marca, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jc_cyv_conce, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jc_cyv_conce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel21)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jc_cyv_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jc_cyv_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jtab_gar.addTab("Compra y venta", jPanel1);
+
+        jtab_cars.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Marca", "Modelo", "Color", "Año", "Reconstruido"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jtab_cars);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jtab_gar.addTab("Carros", jPanel2);
 
         jp_admin.setMaximumSize(new java.awt.Dimension(805, 467));
 
@@ -502,7 +624,7 @@ public class Garaje extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(728, 728, 728)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtab_gar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(358, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -528,7 +650,7 @@ public class Garaje extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(395, 395, 395)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtab_gar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(194, Short.MAX_VALUE)))
         );
 
@@ -575,6 +697,13 @@ public class Garaje extends javax.swing.JFrame {
         jp_admin.setVisible(true);
         jp_iniciarS.setVisible(false);
         }
+        boolean exist = false;
+        for (int i = 0; i < usuarios.size(); i++) {
+            if((usuarios.get(i).getNombre().equals(jt_iniciarS_nombreU.getText()))&&(usuarios.get(i).getContra().equals(jp_IniciarS_Contra.getText()))){
+            exist = true;
+            }
+        }jtab_cars.setVisible(exist);
+        jp_iniciarS.setVisible(false);
     }//GEN-LAST:event_jb_iniciarS_IngreMouseClicked
 
     private void jbcolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbcolMouseClicked
@@ -594,6 +723,89 @@ public class Garaje extends javax.swing.JFrame {
     jp_iniciarS.setVisible(false);
     jb_iniciarS_Ingre.setVisible(false);
     }//GEN-LAST:event_jb_admin_agrecarMouseClicked
+
+    private void jc_cyv_conceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jc_cyv_conceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jc_cyv_conceActionPerformed
+
+    private void jc_cyv_paisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jc_cyv_paisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jc_cyv_paisActionPerformed
+
+    private void jc_cyv_paisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_cyv_paisItemStateChanged
+       if(jc_cyv_pais.getSelectedItem().toString().equals("Japan")){
+       
+           DefaultComboBoxModel model = new  DefaultComboBoxModel();
+           model.addElement("Subaru");
+           model.addElement("Toyota");
+           model.addElement("Honda");
+           model.addElement("Mitsubishi");
+           model.addElement("Nissan");
+           jc_cyv_marca.setModel(model);
+       }
+      else if(jc_cyv_pais.getSelectedItem().toString().equals("USA")){
+          
+          DefaultComboBoxModel model2 = new DefaultComboBoxModel();
+          model2.addElement("Ford");
+          model2.addElement("Chevrolet");
+          model2.addElement("Acora");
+          jc_cyv_marca.setModel(model2);
+      
+      }
+      else if(jc_cyv_pais.getSelectedItem().toString().equals("Italia")){
+      
+          DefaultComboBoxModel model3 = new DefaultComboBoxModel();
+          model3.addElement("Ferrari");
+          model3.addElement("Lamborghini");
+          jc_cyv_marca.setModel(model3);
+          
+      }
+      else if(jc_cyv_pais.getSelectedItem().toString().equals("Alemania")){
+      
+      DefaultComboBoxModel model4 = new DefaultComboBoxModel();
+          model4.addElement("BMW");
+          model4.addElement("Mercedes-Benz");
+          model4.addElement("XW");
+          model4.addElement("Audi");
+          model4.addElement("Porsche");
+           jc_cyv_marca.setModel(model4);
+      }
+      else if(jc_cyv_pais.getSelectedItem().toString().equals("Francia")){
+      
+          DefaultComboBoxModel model5 = new DefaultComboBoxModel();
+          model5.addElement("Puyeot");
+           jc_cyv_marca.setModel(model5);
+      }
+      else if(jc_cyv_pais.getSelectedItem().toString().equals("UK")){
+      
+          DefaultComboBoxModel model6 = new DefaultComboBoxModel();
+          model6.addElement("Mini");
+          model6.addElement("Sallden");
+          model6.addElement("Volvo");
+           jc_cyv_marca.setModel(model6);
+      }
+    }//GEN-LAST:event_jc_cyv_paisItemStateChanged
+
+    private void jtab_garStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtab_garStateChanged
+       if(jtab_gar.getSelectedIndex()==1){
+          DefaultTableModel model = new DefaultTableModel();
+          
+          model = modelo;
+          Object row [] = new Object[5];
+           for (int i = 0; i < cars.size(); i++) {
+               
+               row[0]=cars.get(i).getMarca();
+               row[1]=cars.get(i).getModelo();
+               row[2]=cars.get(i).getColor();
+               row[3]=cars.get(i).getFabricacion().getYear();
+               row[4]=cars.get(i).getReconstruido();
+               
+               model.addRow(row);
+           }
+           jtab_cars.setModel(model);
+          
+       }
+    }//GEN-LAST:event_jtab_garStateChanged
 
     /**
      * @param args the command line arguments
@@ -632,6 +844,7 @@ public class Garaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -642,7 +855,10 @@ public class Garaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -651,13 +867,17 @@ public class Garaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jb_CrearU;
     private javax.swing.JButton jb_IniciarS;
     private javax.swing.JButton jb_admin_agrecar;
     private javax.swing.JButton jb_iniciarS_Ingre;
     private javax.swing.JButton jbcol;
+    private javax.swing.JComboBox<String> jc_cyv_conce;
+    private javax.swing.JComboBox<String> jc_cyv_marca;
+    private javax.swing.JComboBox<String> jc_cyv_pais;
     private javax.swing.JComboBox<String> jcadmin_pais;
     private javax.swing.JComboBox<String> jcadmin_rec;
     private javax.swing.JDialog jd_crearU;
@@ -673,6 +893,8 @@ public class Garaje extends javax.swing.JFrame {
     private javax.swing.JTextField jt_correo;
     private javax.swing.JTextField jt_iniciarS_nombreU;
     private javax.swing.JTextField jt_pais_de_r;
+    private javax.swing.JTable jtab_cars;
+    private javax.swing.JTabbedPane jtab_gar;
     private javax.swing.JTextField jtadmin_marca;
     private javax.swing.JTextField jtadmin_model;
     private javax.swing.JTextField jtadmin_price;
